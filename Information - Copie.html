@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page GIF + Musique + Bannière</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/minecraft-4'); /* Police Minecraft depuis un CDN */
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: black;
+        }
+
+        /* Conteneur du GIF avec effet flou */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://wallpaperaccess.com/full/849790.gif') no-repeat center center fixed;
+            background-size: cover;
+            filter: blur(8px);
+        }
+
+        /* Bannière en haut */
+        .banner-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 130px;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 5px solid black;
+            z-index: 200;
+        }
+
+        /* Image dans la bannière */
+        .banner-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Texte STICKORIA fixé en haut */
+        .stickoria-text {
+            font-family: 'Minecraft', sans-serif;
+            font-size: 50px;
+            color: white;
+            text-align: center;
+            position: fixed;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-shadow: 4px 4px 0px black;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 150;
+        }
+
+        /* Effet hover sur STICKORIA */
+        .stickoria-text:hover {
+            opacity: 0.8;
+        }
+
+        /* Texte sous STICKORIA avec dégradé individuel */
+        .animated-text {
+            font-family: 'Minecraft', sans-serif;
+            font-size: 30px;
+            text-align: center;
+            position: fixed;
+            top: 210px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            font-weight: bold;
+        }
+
+        /* Dégradé individuel pour chaque mot */
+        .animated-text span:nth-child(1) { background: linear-gradient(90deg, red, orange); -webkit-background-clip: text; color: transparent; }
+        .animated-text span:nth-child(3) { background: linear-gradient(90deg, orange, yellow); -webkit-background-clip: text; color: transparent; }
+        .animated-text span:nth-child(5) { background: linear-gradient(90deg, yellow, green); -webkit-background-clip: text; color: transparent; }
+        .animated-text span:nth-child(7) { background: linear-gradient(90deg, green, blue); -webkit-background-clip: text; color: transparent; }
+        .animated-text span:nth-child(9) { background: linear-gradient(90deg, blue, indigo); -webkit-background-clip: text; color: transparent; }
+        .animated-text span:nth-child(11) { background: linear-gradient(90deg, indigo, violet); -webkit-background-clip: text; color: transparent; }
+
+        /* Couleur des tirets */
+        .animated-text span.tiret {
+            color: lightgray;
+        }
+
+        /* Bouton de vote sous le texte animé */
+        .vote-button {
+            font-family: 'Minecraft', sans-serif;
+            font-size: 20px;
+            text-align: center;
+            padding: 10px 20px;
+            border: 2px solid black;
+            background: white;
+            color: black;
+            cursor: pointer;
+            text-shadow: 2px 2px 0px white;
+            position: fixed;
+            top: 270px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: background 0.3s, color 0.3s;
+            z-index: 160;
+        }
+
+        /* Effet hover sur le bouton */
+        .vote-button:hover {
+            background: black;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    
+    <!-- Bannière en haut -->
+    <div class="banner-container">
+        <img src="https://th.bing.com/th/id/OIP.LL8727NKv-eBOHPaN5p4KQHaEK?w=261&h=180&c=7&r=0&o=7&cb=iwp1&pid=1.7&rm=3" alt="Bannière">
+    </div>
+
+    <!-- Texte STICKORIA fixé en haut -->
+    <div class="stickoria-text">STICKORIA</div>
+
+    <!-- Texte animé sous STICKORIA avec dégradé individuel -->
+    <div class="animated-text">
+        <span>PvP</span><span class="tiret">-</span>
+        <span>Faction</span><span class="tiret">-</span>
+        <span>TotemAP</span><span class="tiret">-</span>
+        <span>Mini-Jeux</span><span class="tiret">-</span>
+        <span>Aventure</span>
+    </div>
+
+    <!-- Bouton Voter sous le texte -->
+    <a href="https://top-serveurs.net/minecraft/vote/stickoria-681a32944ee71" target="_blank">
+        <button class="vote-button">Voter</button>
+    </a>
+
+    <!-- Script pour afficher le texte après 0.8 secondes -->
+    <script>
+        setTimeout(() => {
+            document.querySelector('.animated-text').style.display = 'block';
+        }, 800);
+    </script>
+</body>
+</html>

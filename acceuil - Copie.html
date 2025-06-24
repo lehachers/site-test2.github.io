@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stickoria</title>
+    <style>
+        @font-face {
+            font-family: "Minecraft";
+            src: url("fonts/Minecraft.ttf") format("truetype");
+        }
+
+        body {
+            margin: 3px;
+            height: 140vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('https://i.pinimg.com/736x/5a/2d/fa/5a2dfa93e66f939434bb1c57490a4c15.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        h1 {
+            font-family: "Minecraft", sans-serif;
+            font-size: 2em;
+            color: yellow;
+            background: linear-gradient(50deg, yellow, yellow, yellow);
+            -webkit-background-clip: text;
+            background-clip: text;
+            transition: transform 0.5s ease-in-out, background 1s ease-in-out;
+        }
+
+        /* Animation automatique après 0.4 secondes */
+        h1.start-animation {
+            transform: scale(1.2);
+            background: linear-gradient(100deg, red, orange, yellow, green, blue, violet);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Message caché */
+        .message {
+            font-family: "Minecraft", sans-serif;
+            font-size: 1.2em;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Affichage du message après animation du titre */
+        .start-animation + .message {
+            opacity: 1;
+            color: black;
+            transform: translateY(5px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        /* Texte coloré avec image de fond et position ajustée */
+        .colored-text {
+            font-family: "Minecraft", sans-serif;
+            background: rgba(255, 255, 255, 0.7); /* Fond semi-transparent */
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out;
+            margin-top: -10px;
+            width: fit-content;
+            border-radius: 10px;
+        }
+
+        .start-animation + .message + .colored-text {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease-in-out 0.5s;
+        }
+
+        /* Couleurs arc-en-ciel */
+        .colored-text span {
+            font-family: "Minecraft", sans-serif;
+            font-size: 1em;
+            padding: 2px;
+        }
+
+        .colored-text .pvp { color: red; }       /* Rouge */
+        .colored-text .faction { color: orange; } /* Orange */
+        .colored-text .totemap { color: yellow; } /* Jaune */
+        .colored-text .mini-jeux { color: green; } /* Vert */
+        .colored-text .aventure { color: blue; }  /* Bleu */
+        .colored-text .dash { color: purple; }  /* Violet */
+
+        .logo {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100px;
+            height: auto;
+        }
+
+        /* Style des boutons */
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .open-page-btn {
+            font-family: "Minecraft", sans-serif;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: 2px solid black; /* Contour noir */
+            background-color: transparent; /* Fond transparent */
+            color: black; /* Texte noir */
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .open-page-btn:hover {
+            background-color: rgba(0, 0, 0, 0.2); /* Légère transparence au survol */
+        }
+    </style>
+</head>
+<body>
+    <img class="logo" src="https://i.imgur.com/yei7Fo0.png" alt="Stickoria Logo">
+    <h1 id="stickoria-title">Stickoria</h1>
+    <p class="message">Stickoria2024.aternos.me</p>
+    <p class="colored-text">
+        <span class="pvp">Pvp</span>
+        <span class="dash">-</span>
+        <span class="faction">Faction</span>
+        <span class="dash">-</span>
+        <span class="totemap">TotemAP</span>
+        <span class="dash">-</span>
+        <span class="mini-jeux">Mini-Jeux</span>
+        <span class="dash">-</span>
+        <span class="aventure">Aventure</span>
+    </p>
+
+    <!-- Bouton pour accéder à information.html -->
+    <div class="button-container">
+        <a href="information.html">
+            <button class="open-page-btn">Voir plus sur notre site</button>
+        </a>
+    </div>
+
+    <!-- Bouton "Jouer" pour installer Lunar Client 1.9.4 -->
+    <div class="button-container">
+        <a href="https://az-launcher.nz/fr/" target="_blank">
+            <button class="open-page-btn">Jouer</button>
+        </a>
+    </div>
+
+    <script>
+        window.addEventListener("load", function() {
+            setTimeout(() => {
+                document.getElementById("stickoria-title").classList.add("start-animation");
+            }, 400); // Animation démarre après 0.4 secondes
+        });
+    </script>
+
+</body>
+</html>
